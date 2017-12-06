@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Polyweb_SiteReview extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Polyweb
+ * @package        Polyweb_SiteReview
+ * @copyright      Copyright (c) 2016
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <polyweb_sitereview translate="title" module="polyweb_sitereview">
+                                        <title>SiteReview</title>
+                                    </polyweb_sitereview>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                    <polyweb_sitereview translate="title" module="polyweb_sitereview">
+                        <title>Site Reviews</title>
+                        <children>
+                            <sitereview translate="title" module="polyweb_sitereview">
+                                <title>Site Review</title>
+                                <sort_order>0</sort_order>
+                            </sitereview>
+                        </children>
+                    </polyweb_sitereview>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+    <menu>
+        <polyweb_sitereview translate="title" module="polyweb_sitereview">
+            <title>Site Reviews</title>
+            <sort_order>85</sort_order>
+            <children>
+                <sitereview translate="title" module="polyweb_sitereview">
+                    <title>Site Review</title>
+                    <action>adminhtml/sitereview_sitereview</action>
+                    <sort_order>0</sort_order>
+                </sitereview>
+            </children>
+        </polyweb_sitereview>
+    </menu>
+</config>

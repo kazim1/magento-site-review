@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Polyweb_SiteReview extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Polyweb
+ * @package        Polyweb_SiteReview
+ * @copyright      Copyright (c) 2016
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+--> 
+<layout>
+    <adminhtml_sitereview_sitereview_index>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>polyweb_sitereview/sitereview</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="polyweb_sitereview/adminhtml_sitereview" name="sitereview" />
+
+        </reference>
+    </adminhtml_sitereview_sitereview_index>
+    <adminhtml_sitereview_sitereview_grid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="polyweb_sitereview/adminhtml_sitereview_grid" name="sitereview_grid"/>
+        </block>
+    </adminhtml_sitereview_sitereview_grid>
+    <!-- Sitereview add/edit action -->
+    <adminhtml_sitereview_sitereview_edit>
+        <update handle="editor"/>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>polyweb_sitereview/sitereview</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="polyweb_sitereview/adminhtml_sitereview_edit" name="sitereview_edit"></block>
+        </reference>
+        <reference name="left">
+            <block type="polyweb_sitereview/adminhtml_sitereview_edit_tabs" name="sitereview_tabs"></block>
+        </reference>
+    </adminhtml_sitereview_sitereview_edit>
+
+</layout>

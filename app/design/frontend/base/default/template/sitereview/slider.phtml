@@ -1,0 +1,34 @@
+<?php 
+$collection = Mage::getModel('polyweb_sitereview/sitereview')->getCollection();
+?>
+
+<div class="review-slider">
+	<?php if($collection->count()): ?>
+		<?php foreach($collection as $item): ?>
+			<div class="review-item">
+				<?php if( $item->getCustomerImage() ): ?>
+					<img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . $item->getCustomerImage() ?>" alt="<?php echo $item->getCustomerName() ?>" />
+				<?php endif; ?>
+				<div class="review-detail"><?php echo $item->getDetail() ?></div>
+				<div class="review-name">
+					<?php echo $item->getCustomerName() ?>
+					<span><?php echo $item->getCity() . ', ' . $item->getState() ?></span>
+				</div>
+			</div>
+		<?php endforeach; ?>
+	<?php endif; ?>
+	
+</div>
+
+
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('lib/slick/slick.css') ?>"/>
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('lib/slick/slick-theme.css') ?>"/>
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('lib/slick/slick.min.js') ?>"></script>
+
+<script>
+	jQuery(function($) {
+		$('.review-slider').slick({
+			
+		});
+	});
+</script>

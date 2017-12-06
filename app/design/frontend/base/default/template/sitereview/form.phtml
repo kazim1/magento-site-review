@@ -1,0 +1,89 @@
+<div id="messages_product_view"><?php echo $this->getMessagesBlock()->toHtml() ?></div>
+<form action="<?php echo $this->getFormAction(); ?>" id="reviewForm" method="post" enctype="multipart/form-data">
+    <div class="fieldset">
+        <h2 class="legend"><?php echo Mage::helper('polyweb_sitereview')->__('Review Detail') ?></h2>
+        <ul class="form-list">
+            <li class="fields">
+                <div class="field">
+                    <label for="customer_name" class="required"><em>*</em><?php echo Mage::helper('polyweb_sitereview')->__('Customer Name') ?></label>
+                    <div class="input-box">
+                        <input name="customer_name" id="customer_name" title="<?php echo Mage::helper('polyweb_sitereview')->__('Name') ?>" value="" class="input-text required-entry" type="text" />
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="email" class="required"><em>*</em><?php echo Mage::helper('polyweb_sitereview')->__('Email') ?></label>
+                    <div class="input-box">
+                        <input name="email" id="email" title="<?php echo Mage::helper('polyweb_sitereview')->__('Email') ?>" value="" class="input-text required-entry validate-email" type="text" />
+                    </div>
+                </div>
+            </li>
+            <li>
+                <label for="mobile"><?php echo Mage::helper('polyweb_sitereview')->__('Mobile') ?></label>
+                <div class="input-box">
+                    <input name="mobile" id="mobile" title="<?php echo Mage::helper('polyweb_sitereview')->__('Mobile') ?>" value="" class="input-text" type="text" />
+                </div>
+            </li>
+			<li>
+                <label for="title"><?php echo Mage::helper('polyweb_sitereview')->__('Review Title') ?></label>
+                <div class="input-box">
+                    <input name="title" id="title" title="<?php echo Mage::helper('polyweb_sitereview')->__('Review Title') ?>" value="" class="input-text" type="text" />
+                </div>
+            </li>
+            <li class="wide">
+                <label for="detail" class="required"><em>*</em><?php echo Mage::helper('polyweb_sitereview')->__('Detail') ?></label>
+                <div class="input-box">
+                    <textarea name="detail" id="detail" title="<?php echo Mage::helper('polyweb_sitereview')->__('Detail') ?>" class="required-entry input-text" cols="5" rows="3"></textarea>
+                </div>
+            </li>
+			<li class="wide">
+                <label for="customer_image" class="required"><em>*</em><?php echo Mage::helper('polyweb_sitereview')->__('Customer Image') ?></label>
+                <div class="input-box">
+                    <input type="file" name="customer_image" id="customer_image" title="<?php echo Mage::helper('polyweb_sitereview')->__('Customer Image') ?>" class="required-entry input-text" />
+                </div>
+            </li>
+			<li>
+                <label for="city"><?php echo Mage::helper('polyweb_sitereview')->__('City') ?></label>
+                <div class="input-box">
+                    <input name="city" id="city" title="<?php echo Mage::helper('polyweb_sitereview')->__('City') ?>" value="" class="input-text" type="text" />
+                </div>
+            </li>
+			<li>
+                <label for="state"><?php echo Mage::helper('polyweb_sitereview')->__('State') ?></label>
+                <div class="input-box">
+                    <input name="state" id="state" title="<?php echo Mage::helper('polyweb_sitereview')->__('State') ?>" value="" class="input-text" type="text" />
+                </div>
+            </li>
+			
+			<li class="wide">
+                <label for="rating" class="required"><em>*</em><?php echo Mage::helper('polyweb_sitereview')->__('Rating') ?></label>
+                <div class="input-box">
+                    <label>
+						<input type="radio" name="rating" value="1" /> 1
+					</label>
+					<label>
+						<input type="radio" name="rating" value="2" /> 2
+					</label>
+					<label>
+						<input type="radio" name="rating" value="3" /> 3
+					</label>
+					<label>
+						<input type="radio" name="rating" value="4" /> 4
+					</label>
+					<label>
+						<input type="radio" name="rating" value="5" /> 5
+					</label>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="buttons-set">
+        <p class="required"><?php echo Mage::helper('polyweb_sitereview')->__('* Required Fields') ?></p>
+        <input type="text" name="hideit" id="hideit" value="" style="display:none !important;" />
+        <button type="submit" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('polyweb_sitereview')->__('Submit')) ?>" class="button"><span><span><?php echo Mage::helper('polyweb_sitereview')->__('Submit') ?></span></span></button>
+    </div>
+</form>
+<script type="text/javascript">
+//<![CDATA[
+    var contactForm = new VarienForm('reviewForm', true);
+//]]>
+</script>

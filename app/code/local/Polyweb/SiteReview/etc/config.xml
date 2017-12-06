@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Polyweb_SiteReview extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Polyweb
+ * @package        Polyweb_SiteReview
+ * @copyright      Copyright (c) 2016
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<config>
+    <modules>
+        <Polyweb_SiteReview>
+            <version>1.0.0</version>
+        </Polyweb_SiteReview>
+    </modules>
+    <global>
+        <resources>
+            <polyweb_sitereview_setup>
+                <setup>
+                    <module>Polyweb_SiteReview</module>
+                    <class>Polyweb_SiteReview_Model_Resource_Setup</class>
+                </setup>
+            </polyweb_sitereview_setup>
+        </resources>
+        <blocks>
+            <polyweb_sitereview>
+                <class>Polyweb_SiteReview_Block</class>
+            </polyweb_sitereview>
+        </blocks>
+        <helpers>
+            <polyweb_sitereview>
+                <class>Polyweb_SiteReview_Helper</class>
+            </polyweb_sitereview>
+        </helpers>
+        <models>
+            <polyweb_sitereview>
+                <class>Polyweb_SiteReview_Model</class>
+                <resourceModel>polyweb_sitereview_resource</resourceModel>
+            </polyweb_sitereview>
+            <polyweb_sitereview_resource>
+                <class>Polyweb_SiteReview_Model_Resource</class>
+                <entities>
+                    <sitereview>
+                        <table>polyweb_sitereview_sitereview</table>
+                    </sitereview>
+                </entities>
+            </polyweb_sitereview_resource>
+        </models>
+		<events>
+            <sales_order_save_after>
+                <observers>
+                    <send_review_email>
+                        <class>Polyweb_SiteReview_Model_Observer</class>
+                        <method>sendReviewEmail</method>
+                    </send_review_email>
+                </observers>
+            </sales_order_save_after>			
+		</events>
+    </global>
+    <adminhtml>
+        <layout>
+            <updates>
+                <polyweb_sitereview>
+                    <file>polyweb_sitereview.xml</file>
+                </polyweb_sitereview>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <Polyweb_SiteReview>
+                    <files>
+                        <default>Polyweb_SiteReview.csv</default>
+                    </files>
+                </Polyweb_SiteReview>
+            </modules>
+        </translate>
+        <global_search>
+            <sitereview>
+                <class>polyweb_sitereview/adminhtml_search_sitereview</class>
+                <acl>polyweb_sitereview</acl>
+            </sitereview>
+        </global_search>
+    </adminhtml>
+	<frontend>
+		<routers>
+            <sitereview>
+                <use>standard</use>
+                <args>
+                    <module>Polyweb_SiteReview</module>
+                    <frontName>sitereview</frontName>
+                </args>
+            </sitereview>
+        </routers>
+        <layout>
+            <updates>
+                <polyweb_sitereview>
+                    <file>polyweb_sitereview.xml</file>
+                </polyweb_sitereview>
+            </updates>
+        </layout>
+		
+	
+    </frontend>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Polyweb_SiteReview before="Mage_Adminhtml">Polyweb_SiteReview_Adminhtml</Polyweb_SiteReview>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+</config>
